@@ -2,8 +2,15 @@
 ### Do not make changes to this file directly
 
 
+input LoginInput {
+  email: String!
+  password: String!
+}
+
 type Mutation {
   createUser(data: UserInput!): User
+  login(data: LoginInput!): Boolean
+  register(data: RegisterInput!): Boolean
 }
 
 interface Node {
@@ -13,6 +20,14 @@ interface Node {
 
 type Query {
   userById(id: String!): User
+}
+
+input RegisterInput {
+  confirmPassword: String!
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
 }
 
 type User implements Node {

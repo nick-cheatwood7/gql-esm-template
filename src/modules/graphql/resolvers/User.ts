@@ -1,5 +1,4 @@
 import { extendType, stringArg, nonNull } from "nexus";
-import { prisma } from "../../../utils/prisma.js";
 import type { NexusGenObjects } from "../generated/nexus-typegen.cjs";
 import { User, UserInput } from "../types/User.js";
 
@@ -30,9 +29,9 @@ export const createUser = extendType({
         t.field("createUser", {
             type: User,
             args: { data: nonNull(UserInput) },
-            resolve: async (_, args, _ctx): Promise<IUser | null> => {
+            resolve: async (_, args, ctx): Promise<IUser | null> => {
                 try {
-                    const user = await prisma.user.create({
+                    const user = await ctx.prisma.user.create({
                         data: {
                             ...args.data
                         }

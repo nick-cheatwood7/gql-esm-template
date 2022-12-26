@@ -16,6 +16,17 @@ declare global {
 }
 
 export interface NexusGenInputs {
+  LoginInput: { // input type
+    email: string; // String!
+    password: string; // String!
+  }
+  RegisterInput: { // input type
+    confirmPassword: string; // String!
+    email: string; // String!
+    firstName: string; // String!
+    lastName: string; // String!
+    password: string; // String!
+  }
   UserInput: { // input type
     email: string; // String!
     firstName: string; // String!
@@ -61,6 +72,8 @@ export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
 export interface NexusGenFieldTypes {
   Mutation: { // field return type
     createUser: NexusGenRootTypes['User'] | null; // User
+    login: boolean | null; // Boolean
+    register: boolean | null; // Boolean
   }
   Query: { // field return type
     userById: NexusGenRootTypes['User'] | null; // User
@@ -80,6 +93,8 @@ export interface NexusGenFieldTypes {
 export interface NexusGenFieldTypeNames {
   Mutation: { // field return type name
     createUser: 'User'
+    login: 'Boolean'
+    register: 'Boolean'
   }
   Query: { // field return type name
     userById: 'User'
@@ -100,6 +115,12 @@ export interface NexusGenArgTypes {
   Mutation: {
     createUser: { // args
       data: NexusGenInputs['UserInput']; // UserInput!
+    }
+    login: { // args
+      data: NexusGenInputs['LoginInput']; // LoginInput!
+    }
+    register: { // args
+      data: NexusGenInputs['RegisterInput']; // RegisterInput!
     }
   }
   Query: {

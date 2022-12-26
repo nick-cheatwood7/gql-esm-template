@@ -26,3 +26,19 @@ export const User = objectType({
         userDefinition(t);
     }
 });
+
+export const RegisterInput = inputObjectType({
+    name: "RegisterInput",
+    definition(t) {
+        userDefinition(t);
+        t.nonNull.string("confirmPassword");
+    }
+});
+
+export const LoginInput = inputObjectType({
+    name: "LoginInput",
+    definition(t) {
+        t.nonNull.string("email");
+        t.nonNull.string("password");
+    }
+});
