@@ -1,0 +1,7 @@
+{
+    "extends": "@tsconfig/node18-strictest-esm/tsconfig.json",
+    "compilerOptions": {
+        "lib": ["DOM", "ESNext"]
+    },
+    "include": ["./src/**/*", "./src/types/env.d.ts"]
+}
